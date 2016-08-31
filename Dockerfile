@@ -15,6 +15,7 @@ run mkdir /var/log/odoo
 
 workdir /opt/odoo
 run git clone -b odoo https://github.com/akhilrajmailbox/odoo.git
+run rm -r /opt/odoo/odoo/odoo-9/addons
 run cp -r /opt/odoo/odoo/odoo-9/* /opt/odoo/ && rm -r /opt/odoo/odoo/odoo-9
 run cp -r /opt/odoo/odoo/* /opt/odoo/ && rm -r /opt/odoo/odoo
 
