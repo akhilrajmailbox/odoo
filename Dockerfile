@@ -8,7 +8,8 @@ run apt-get install -y 	subversion git bzr bzrtools postgresql postgresql-server
 		    	libldap2-dev pkg-config libtiff5-dev \
 		    	libjpeg8-dev libjpeg-dev zlib1g-dev \
 		   	libfreetype6-dev liblcms2-dev liblcms2-utils \
-		    	libwebp-dev tcl8.6-dev tk8.6-dev python-tk libyaml-dev fontconfig wget
+		    	libwebp-dev tcl8.6-dev tk8.6-dev python-tk libyaml-dev fontconfig \
+			wget nano ssh ssmtp 
 
 run adduser --system --home=/opt/odoo --group odoo
 run mkdir /var/log/odoo
@@ -34,11 +35,13 @@ workdir /etc
 run sed -i "s|; admin_passwd = admin|admin_passwd = postgres|g" odoo-server.conf
 run sed -i "s|db_host = False|db_host = 192.168.1.234|g" odoo-server.conf
 run sed -i "s|db_port = False|db_port = 5432|g" odoo-server.conf
-run sed -i "s|db_user = odoo|db_user = abhi|g" odoo-server.conf
-run sed -i "s|db_password = False|db_password = abhi|g" odoo-server.conf
+run sed -i "s|db_user = odoo|db_user = abhi1|g" odoo-server.conf
+run sed -i "s|db_password = False|db_password = abhi1|g" odoo-server.conf
 run sed -i "s|addons_path = /usr/lib/python2.7/dist-packages/openerp/addons|#addons_path = /usr/lib/python2.7/dist-packages/openerp/addons|g" odoo-server.conf
-workdir /opt/odoo
+run rm -r /etc/ssmtp/ssmtp.conf
+run cp -r /opt/odoo/ssmtp.conf /etc/ssmtp/ssmtp.conf
 
+workdir /opt/odoo
 run cp -r /opt/odoo/odoo-server /etc/init.d/
 run chmod 755 /etc/init.d/odoo-server
 run chown root: /etc/init.d/odoo-server
@@ -51,3 +54,5 @@ run rm -r wkhtmltox-0.12.1_linux-trusty-amd64.deb odoo-server
 
 expose 8069
 entrypoint /etc/init.d/odoo-server start && tail -f /var/log/apt/history.log && bash
+
+
