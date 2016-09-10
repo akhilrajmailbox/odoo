@@ -1,0 +1,10 @@
+odoo-config (without smtp and ldap)
+https://www.linode.com/docs/websites/cms/install-odoo-9-erp-on-ubuntu-14-04
+
+ldap auth
+http://www.targetintegration.com/knowledgement/en_US/general/configure-odoo-to-use-zentyal-ldap
+
+smtp-config error
+http://www.slideshare.net/engmohamans/outgoing-mail-servers-configuration
+https://apps.openerp.com/apps/modules/8.0/tko_mail_smtp_per_user/
+https://www.odoo.com/forum/help-1/question/how-to-set-up-e-mail-messaging-with-odoo-61796
